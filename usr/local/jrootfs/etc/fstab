@@ -1,0 +1,13 @@
+#
+# /etc/fstab: static file system information.
+#
+# file system   mount       	type    options           dump    pass
+proc            /proc       	proc    defaults          0       0
+/dev		/dev        	none    rw,bind           0       0
+devpts          /dev/pts    	devpts  gid=5,mode=620    0       0
+sysfs           /sys        	sysfs   defaults          0       0
+usbfs           /proc/bus/usb  	usbfs   defaults          0       0
+/tmp/jtmp       /tmp 	    	none    rw,bind           0       0
+/var/jvar	/var		none    rw,bind		  0	  0
+/home/jhome     /home		none    rw,bind		  0       0
+/		/oldrootfs	none	ro,bind		  0       0
