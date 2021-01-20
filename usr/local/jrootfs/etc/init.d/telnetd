@@ -2,26 +2,11 @@
 
 description="telnet server"
 
-pidfile="${TELNETD_PIDFILE:-"/run/$RC_SVCNAME.pid"}"
-command="${TELNETD_BINARY:-"/usr/sbin/telnetd"}"
+procname="telnetd"
+command="/usr/sbin/telnetd"
+command_args="-b 127.0.0.1:9923 -K -l/bin/sh"
 
 depend() {
 	use logger dns
 	after loopback
-}
-
-stop() {
-	ebegin "Stopping $RC_SVCNAME"
-	start-stop-daemon --stop --exec "$command" \
-		--pidfile "$pidfile" --quiet
-	eend $?
-
-	if [ "$RC_RUNLEVEL" = "shutdown" ]; then
-		_telnetd_pids=$(pgrep "${command##*/}")
-		if [ -n "$_telnetd_pids" ]; then
-			ebegin "Shutting down telnet connections"
-			kill -TERM $_telnetd_pids >/dev/null 2>&1
-			eend 0
-		fi
-	fi
 }

@@ -1,5 +1,0 @@
-# Configuration for /etc/init.d/telnetd
-
-# Any random options you want to pass to telnetd.
-# See the telnetd(8) manpage for more info.
-command_args="-b 127.0.0.1:9923 -K"
