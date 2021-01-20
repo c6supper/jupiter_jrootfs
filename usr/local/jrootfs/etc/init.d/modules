@@ -15,7 +15,7 @@ depend()
 {
 	use isapnp
 	provide modules-load
-	keyword -docker -lxc -openvz -prefix -systemd-nspawn -vserver -jrootfs
+	keyword -docker -lxc -openvz -prefix -systemd-nspawn -vserver -jail
 }
 
 find_modfiles()
