@@ -1,0 +1,47 @@
+#!/sbin/openrc-run
+
+description="telnet server"
+description_checkconfig="Verify configuration file"
+description_reload="Reload configuration"
+
+extra_commands="checkconfig"
+extra_started_commands="reload"
+
+pidfile="${TELNETD_PIDFILE:-"/run/$RC_SVCNAME.pid"}"
+command="${TELNETD_BINARY:-"/usr/sbin/telnetd"}"
+
+depend() {
+	use logger dns
+	after loopback
+}
+
+checkconfig() {
+	[ "$pidfile" != "/run/telnetd.pid" ] \
+		&& command_args="$command_args -o PidFile=$pidfile"
+
+	"$command" -t $command_args || return 1
+}
+
+start_pre() {
+	checkconfig
+}
+
+stop() {
+	if [ "${RC_CMD}" = "restart" ] ; then
+		checkconfig || return 1
+	fi
+
+	ebegin "Stopping $RC_SVCNAME"
+	start-stop-daemon --stop --exec "$command" \
+		--pidfile "$pidfile" --quiet
+	eend $?
+
+	if [ "$RC_RUNLEVEL" = "shutdown" ]; then
+		_telnetd_pids=$(pgrep "${command##*/}")
+		if [ -n "$_telnetd_pids" ]; then
+			ebegin "Shutting down telnet connections"
+			kill -TERM $_telnetd_pids >/dev/null 2>&1
+			eend 0
+		fi
+	fi
+}

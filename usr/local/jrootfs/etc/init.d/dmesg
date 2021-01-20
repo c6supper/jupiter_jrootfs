@@ -9,29 +9,17 @@
 # This file may not be copied, modified, propagated, or distributed
 # except according to the terms contained in the LICENSE file.
 
+description="Set the dmesg level for a cleaner boot"
+
 depend()
 {
-	after clock root
-	before localmount
-	keyword -docker -jail -lxc -openvz -prefix -systemd-nspawn -vserver -jrootfs
+	before dev modules
+	keyword -docker -lxc -prefix -systemd-nspawn -vserver -jrootfs
 }
 
 start()
 {
-	ebegin "Activating swap devices"
-	case "$RC_UNAME" in
-		NetBSD|OpenBSD) swapctl -A -t noblk >/dev/null;;
-		*)		swapon -a >/dev/null;;
-	esac
-	eend 0 # If swapon has nothing todo it errors, so always return 0
-}
-
-stop()
-{
-	ebegin "Deactivating swap devices"
-	case "$RC_UNAME" in
-		NetBSD|OpenBSD)	swapctl -U -t noblk >/dev/null;;
-		*)		swapoff -a >/dev/null;;
-	esac
-	eend 0
+	if [ -n "$dmesg_level" ]; then
+		dmesg -n$dmesg_level
+	fi
 }

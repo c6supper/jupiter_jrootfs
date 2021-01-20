@@ -17,3 +17,4 @@ devpts              /dev/pts            devpts  gid=5,mode=620      0           
 /etc/localtime      /etc/localtime      none    ro,bind             0           0
 /etc/resolv.conf    /etc/resolv.conf    none    ro,bind             0           0
 /etc/nsswitch.conf  /etc/nsswitch.conf  none    ro,bind             0           0
+/etc/passwd         /etc/passwd         none    ro,bind             0           0
