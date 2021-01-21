@@ -11,7 +11,7 @@ description="Monit service supervisor"
 : ${monit_config:=${CONF:-/etc/monitrc}}
 
 command=/usr/bin/monit
-command_args="-c ${monit_config}"
+command_args="-c ${monit_config} -s /tmp/run/monit.state -d 10"
 command_args_foreground="-I"
 
 extra_commands="configtest"
