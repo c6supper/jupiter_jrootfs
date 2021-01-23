@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ -e /tmp/var/run/jail.pid ]
+then
+  /bin/kill $(cat /tmp/var/run/jail.pid 2&>/dev/null)
+fi
+
+echo "out of jail"
