@@ -29,7 +29,7 @@ export PATH=$PATH:/usr/sbin:/usr/bin:/sbin:/bin
 # Ensure strict root's umask doesen't render the VM unusable
 umask 022
 
-LXC_TEMPLATE_CONFIG="/usr/local/jrootfs/usr/share/lxc/config"
+LXC_TEMPLATE_CONFIG="/usr/share/lxc/config"
 
 ################################################################################
 #                        Various helper functions

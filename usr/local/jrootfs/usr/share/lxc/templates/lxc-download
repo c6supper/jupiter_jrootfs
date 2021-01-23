@@ -22,8 +22,8 @@
 set -eu
 
 LOCALSTATEDIR="/var"
-LXC_HOOK_DIR="/usr/local/jrootfs/usr/share/lxc/hooks"
-LXC_TEMPLATE_CONFIG="/usr/local/jrootfs/usr/share/lxc/config"
+LXC_HOOK_DIR="/usr/share/lxc/hooks"
+LXC_TEMPLATE_CONFIG="/usr/share/lxc/config"
 
 # Defaults
 DOWNLOAD_ARCH=

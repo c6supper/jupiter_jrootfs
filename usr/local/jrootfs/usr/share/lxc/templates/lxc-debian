@@ -37,7 +37,7 @@ export GREP_OPTIONS=""
 MIRROR=${MIRROR:-http://deb.debian.org/debian}
 SECURITY_MIRROR=${SECURITY_MIRROR:-http://security.debian.org/}
 LOCALSTATEDIR="/var"
-LXC_TEMPLATE_CONFIG="/usr/local/jrootfs/usr/share/lxc/config"
+LXC_TEMPLATE_CONFIG="/usr/share/lxc/config"
 # Allows the lxc-cache directory to be set by environment variable
 LXC_CACHE_PATH=${LXC_CACHE_PATH:-"$LOCALSTATEDIR/cache/lxc"}
 

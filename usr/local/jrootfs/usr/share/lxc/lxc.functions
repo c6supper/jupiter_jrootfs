@@ -20,10 +20,10 @@
 
 # This file contains helpers for the various lxc shell scripts
 
-globalconf=/usr/local/jrootfs/usr/etc/lxc/lxc.conf
-bindir=/usr/local/jrootfs/usr/bin
-templatedir=/usr/local/jrootfs/usr/share/lxc/templates
-lxcinitdir=/usr/local/jrootfs/usr/libexec
+globalconf=/usr/etc/lxc/lxc.conf
+bindir=/usr/bin
+templatedir=/usr/share/lxc/templates
+lxcinitdir=/usr/libexec
 
 lxc_path=`lxc-config lxc.lxcpath`
 lxc_vg=`lxc-config lxc.bdev.lvm.vg`

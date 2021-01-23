@@ -81,7 +81,7 @@ container_rootfs_patch()
     if [ $container_rootfs != "/" ]; then
         cp -f `readlink -f $0` $container_rootfs/usr/bin/lxc-patch
         mkdir -p $container_rootfs/usr/share/yum-plugins
-        cp /usr/local/jrootfs/usr/share/lxc/lxc-patch.py $container_rootfs/usr/share/yum-plugins
+        cp /usr/share/lxc/lxc-patch.py $container_rootfs/usr/share/yum-plugins
         mkdir -p $container_rootfs/etc/yum/pluginconf.d
         cat <<EOF > $container_rootfs/etc/yum/pluginconf.d/lxc-patch.conf
 [main]
@@ -309,8 +309,8 @@ container_config_create()
     mkdir -p $cfg_dir || die "unable to create config dir $cfg_dir"
 
     echo "# Common configuration" >> $cfg_dir/config
-    if [ -e "/usr/local/jrootfs/usr/share/lxc/config/sparclinux.common.conf" ]; then
-        echo "lxc.include = /usr/local/jrootfs/usr/share/lxc/config/sparclinux.common.conf" >> $cfg_dir/config
+    if [ -e "/usr/share/lxc/config/sparclinux.common.conf" ]; then
+        echo "lxc.include = /usr/share/lxc/config/sparclinux.common.conf" >> $cfg_dir/config
     fi
 
     cat <<EOF >> $cfg_dir/config || die "unable to create $cfg_dir/config"

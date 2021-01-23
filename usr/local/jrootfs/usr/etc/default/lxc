@@ -25,4 +25,4 @@ STOPOPTS="-a -A -s"
 
 USE_LXC_BRIDGE="false"  # overridden in lxc-net
 
-[ ! -f /usr/local/jrootfs/usr/etc/default/lxc-net ] || . /usr/local/jrootfs/usr/etc/default/lxc-net
+[ ! -f /usr/etc/default/lxc-net ] || . /usr/etc/default/lxc-net

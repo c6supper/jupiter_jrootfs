@@ -1117,10 +1117,10 @@ lxc.rootfs = $rootfs_path
 
     rm -f $config_path/config.def
 
-    if [ -e "/usr/local/jrootfs/usr/share/lxc/config/fedora.common.conf" ]; then
+    if [ -e "/usr/share/lxc/config/fedora.common.conf" ]; then
         echo "
 # Include common configuration
-lxc.include = /usr/local/jrootfs/usr/share/lxc/config/fedora.common.conf
+lxc.include = /usr/share/lxc/config/fedora.common.conf
 " >> $config_path/config
     fi
 

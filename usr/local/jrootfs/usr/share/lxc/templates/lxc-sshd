@@ -142,7 +142,7 @@ lxc.mount.entry = /bin bin none ro,bind 0 0
 lxc.mount.entry = /usr usr none ro,bind 0 0
 lxc.mount.entry = /sbin sbin none ro,bind 0 0
 lxc.mount.entry = tmpfs run/sshd tmpfs mode=0644 0 0
-lxc.mount.entry = /usr/local/jrootfs/usr/share/lxc/templates/lxc-sshd $init_path none ro,bind 0 0
+lxc.mount.entry = /usr/share/lxc/templates/lxc-sshd $init_path none ro,bind 0 0
 lxc.mount.entry = /etc/init.d etc/init.d none ro,bind 0 0
 
 lxc.mount.auto = cgroup:mixed proc:mixed sys:mixed
@@ -219,7 +219,7 @@ fi
 if [ $0 = "/sbin/init" ]; then
 
     PATH="$PATH:/bin:/sbin:/usr/sbin"
-    check_for_cmd /usr/local/jrootfs/usr/sbin/init.lxc
+    check_for_cmd /usr/sbin/init.lxc
     check_for_cmd sshd
     sshd_path=$cmd_path
 
@@ -238,7 +238,7 @@ EOF
         ifconfig eth0 |grep inet
     fi
 
-    exec /usr/local/jrootfs/usr/sbin/init.lxc -- $sshd_path
+    exec /usr/sbin/init.lxc -- $sshd_path
     exit 1
 fi
 

@@ -43,8 +43,8 @@ arch=$(uname -m)
 default_path="/var/lib/lxc"
 default_locale="en_US.UTF-8"
 pacman_config="/etc/pacman.conf"
-common_config="/usr/local/jrootfs/usr/share/lxc/config/common.conf"
-shared_config="/usr/local/jrootfs/usr/share/lxc/config/archlinux.common.conf"
+common_config="/usr/share/lxc/config/common.conf"
+shared_config="/usr/share/lxc/config/archlinux.common.conf"
 
 # by default, install 'base' except the kernel
 pkg_blacklist="linux"

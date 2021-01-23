@@ -40,7 +40,7 @@ export PATH=$PATH:/usr/sbin:/usr/bin:/sbin:/bin
 set -e
 
 LOCALSTATEDIR="/var"
-LXC_TEMPLATE_CONFIG="/usr/local/jrootfs/usr/share/lxc/config"
+LXC_TEMPLATE_CONFIG="/usr/share/lxc/config"
 # Allows the lxc-cache directory to be set by environment variable
 LXC_CACHE_PATH=${LXC_CACHE_PATH:-"$LOCALSTATEDIR/cache/lxc"}
 

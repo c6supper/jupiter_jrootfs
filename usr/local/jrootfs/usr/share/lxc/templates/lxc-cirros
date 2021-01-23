@@ -33,7 +33,7 @@ ARCHES=( i386 x86_64 amd64 arm )
 STREAMS=( released devel )
 SOURCES=( nocloud none )
 BUILD="standard"
-LXC_TEMPLATE_CONFIG="/usr/local/jrootfs/usr/share/lxc/config"
+LXC_TEMPLATE_CONFIG="/usr/share/lxc/config"
 
 LXC_MAPPED_GID=
 LXC_MAPPED_UID=

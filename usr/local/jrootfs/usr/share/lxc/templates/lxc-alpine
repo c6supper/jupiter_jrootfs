@@ -34,7 +34,7 @@ set -eu
 export PATH=$PATH:/usr/sbin:/usr/bin:/sbin:/bin
 
 readonly LOCAL_STATE_DIR='/var'
-readonly LXC_TEMPLATE_CONFIG='/usr/local/jrootfs/usr/share/lxc/config'
+readonly LXC_TEMPLATE_CONFIG='/usr/share/lxc/config'
 readonly LXC_CACHE_DIR="${LXC_CACHE_PATH:-"$LOCAL_STATE_DIR/cache/lxc"}/alpine"
 
 # SHA256 checksums of GPG keys for APK.

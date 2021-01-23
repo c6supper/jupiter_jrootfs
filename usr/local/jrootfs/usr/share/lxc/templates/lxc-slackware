@@ -50,7 +50,7 @@ case "$( uname -m )" in
 esac
 fi
 
-LXC_TEMPLATE_CONFIG="/usr/local/jrootfs/usr/share/lxc/config"
+LXC_TEMPLATE_CONFIG="/usr/share/lxc/config"
 
 configure_slackware()
 {

@@ -246,10 +246,10 @@ copy_configuration() {
 	lxc.utsname = $name
 	lxc.arch = $arch
 	EOF
-  if [ -f "/usr/local/jrootfs/usr/share/lxc/config/plamo.common.conf" ] ; then
+  if [ -f "/usr/share/lxc/config/plamo.common.conf" ] ; then
     cat <<- "EOF" >> $path/config || let ret++
 	
-	lxc.include = /usr/local/jrootfs/usr/share/lxc/config/plamo.common.conf
+	lxc.include = /usr/share/lxc/config/plamo.common.conf
 	EOF
   fi
   if [ $ret -ne 0 ] ; then

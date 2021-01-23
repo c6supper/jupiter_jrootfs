@@ -22,9 +22,9 @@
 set -e
 
 STATE_DIR="/var"
-HOOK_DIR="/usr/local/jrootfs/usr/share/lxc/hooks"
+HOOK_DIR="/usr/share/lxc/hooks"
 CLONE_HOOK_FN="$HOOK_DIR/ubuntu-cloud-prep"
-LXC_TEMPLATE_CONFIG="/usr/local/jrootfs/usr/share/lxc/config"
+LXC_TEMPLATE_CONFIG="/usr/share/lxc/config"
 KNOWN_RELEASES="precise trusty xenial yakkety zesty"
 skip_arch_check=${UCTEMPLATE_SKIP_ARCH_CHECK:-0}
 
