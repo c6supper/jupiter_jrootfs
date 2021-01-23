@@ -1,0 +1,7 @@
+#!/bin/sh
+if [ -z $(pidof init|grep $(cat /tmp/var/run/jail.pid)) ]
+then
+  /usr/local/jrootfs/usr/bin/jchroot -p /tmp/var/run/jail.pid  -n jail -f /usr/local/jrootfs/etc/fstab  /usr/local/jrootfs/ /sbin/init &
+sleep 5
+fi
+nsenter -t $(cat /tmp/var/run/jail.pid) -u -m -p -r /bin/sh

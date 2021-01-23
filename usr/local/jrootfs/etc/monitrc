@@ -1,0 +1,4 @@
+set httpd port 9923
+allow calvin:monit
+include /usr/etc/monit/conf.d/*
+include /home/monit/conf.d/*
