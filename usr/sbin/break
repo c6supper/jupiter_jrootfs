@@ -1,0 +1,10 @@
+#!/bin/sh
+if [ -z $(pidof init|grep $(cat /tmp/var/run/jail.pid)) ]
+then
+
+else
+  kill $(pidof init|grep $(cat /tmp/var/run/jail.pid))
+  sleep 5
+fi
+
+echo "out of jail"
