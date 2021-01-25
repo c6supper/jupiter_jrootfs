@@ -1,12 +1,13 @@
 #!/bin/sh
 
-if [ -e /tmp/var/run/jail.pid ]
+pid=$(pgrep -n init)
+
+if [ $pid == 1 ]
 then
-  if [ -z $(pidof init|grep $(cat /tmp/var/run/jail.pid)) ]
-  then
-    /usr/local/jrootfs/usr/bin/jchroot -p /tmp/var/run/jail.pid  -n jail -f /usr/local/jrootfs/etc/fstab  /usr/local/jrootfs/ /sbin/init &
-    sleep 3
-  fi
+  modprobe virtual_fb
+  /usr/local/jrootfs/usr/bin/jchroot -n jail -f /usr/local/jrootfs/etc/fstab  \
+    /usr/local/jrootfs/ /sbin/init &
+  sleep 3
 fi
 
-nsenter -t $(cat /tmp/var/run/jail.pid) -u -m -p -r /bin/sh
+/usr/local/jrootfs/usr/bin/nsenter -t $(pgrep -n init) -u -m -p -r /bin/sh
