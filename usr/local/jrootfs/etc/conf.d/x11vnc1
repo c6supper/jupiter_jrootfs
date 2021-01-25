@@ -4,7 +4,7 @@ fb=fb3
 rfbport=5901
 
 # container name
-command_args="$command_args -n x11vnc"
+command_args="$command_args -n x11vnc1"
 
 # container config
 command_args="$command_args -f /usr/local/modules/common/lxc/config/x11vnc.conf"
