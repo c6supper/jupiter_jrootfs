@@ -1,0 +1,19 @@
+
+# x11vnc container config
+fb=fb5
+rfbport=5903
+
+# container name
+command_args="$command_args -n x11vnc"
+
+# container config
+command_args="$command_args -f /usr/local/modules/common/lxc/config/x11vnc.conf"
+
+# foreground
+command_args="$command_args -F"
+
+# container command
+command_args="$command_args -- x11vnc "
+
+# container command args raw fb
+command_args="$command_args -rawfb map:/dev/${fb}@800x460x16 -rfbport ${rfbport}"

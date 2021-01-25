@@ -1,0 +1,14 @@
+#!/sbin/openrc-run
+
+supervisor=supervise-daemon
+
+name="containerized x11vnc server"
+
+command="/usr/bin/lxc-start"
+
+command_args="${command_args:-}"
+
+depend() {
+	need localmount sysfs cgroups
+	after firewall net
+}
