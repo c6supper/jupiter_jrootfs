@@ -11,6 +11,7 @@ devpts              /dev/pts            devpts  gid=5,mode=620      0           
 /var/jvar           /var                none    rw,bind             0           0
 /home/jhome         /home               none    rw,bind             0           0
 /tmp/jtmp/run       /run                none    rw,bind             0           0
+/tmp/var/dev        /inputdev           none    rw,bind             0           0
 
 # file
 /usr/etc/hosts      /etc/hosts          none    ro,bind             0           0
