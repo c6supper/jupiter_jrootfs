@@ -1,0 +1,14 @@
+#!/sbin/openrc-run
+
+supervisor=supervise-daemon
+
+name="containerized webscokify server"
+
+command="/usr/sbin/webscokify"
+
+command_args="${command_args:-}"
+
+depend() {
+	need x11vnc2 localmount sysfs cgroups
+	after x11vnc2
+}
