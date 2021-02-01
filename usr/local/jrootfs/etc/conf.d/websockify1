@@ -1,5 +1,5 @@
 
-# webscokify container config
+# websockify container config
 webport=6901
 rfbport=5901
 
@@ -10,7 +10,7 @@ command_args="$command_args -n webscokify1"
 command_args="$command_args -f /usr/local/modules/common/lxc/config/x11vnc.conf"
 
 # container command
-command_args="$command_args -- webscokify "
+command_args="$command_args -- websockify "
 
 # container command args raw fb
 command_args="$command_args *:${webport} *:${rfbport}"

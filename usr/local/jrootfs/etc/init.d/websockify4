@@ -2,9 +2,9 @@
 
 supervisor=supervise-daemon
 
-name="containerized webscokify server"
+name="containerized websockify server"
 
-command="/usr/sbin/webscokify"
+command="/usr/sbin/websockify"
 
 command_args="${command_args:-}"
 
