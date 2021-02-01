@@ -3,14 +3,5 @@
 webport=6904
 rfbport=5904
 
-# container name
-command_args="$command_args -n webscokify4"
-
-# container config
-command_args="$command_args -f /usr/local/modules/common/lxc/config/x11vnc.conf"
-
-# container command
-command_args="$command_args -- websockify "
-
-# container command args raw fb
-command_args="$command_args *:${webport} *:${rfbport}"
+# command args
+command_args="*:${webport} *:${rfbport}"
