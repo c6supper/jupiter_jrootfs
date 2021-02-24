@@ -16,8 +16,8 @@ command_args="$command_args -F"
 command_args="$command_args -- x11vnc "
 
 # vnc input pipes example :
-#   KBD_PIPE=p-event-vnc-kbd-11
-#   TS_PIPE=p-event-vnc-mouse-11,touch
+KBD_PIPE=kbd-app-2
+TS_PIPE=mouse-app-2,touch
 command_args="$command_args -pipeinput UINPUT:direct_key=/inputdev/${KBD_PIPE},direct_abs=/inputdev/${TS_PIPE},touch"
 
 # container command args raw fb
