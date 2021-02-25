@@ -3,11 +3,16 @@
 pid=$(pgrep -n init)
 
 if [ $pid == 1 ]
-then
-  modprobe virtual_fb
-  /usr/local/jrootfs/usr/bin/jchroot -n jail -f /usr/local/jrootfs/etc/fstab  \
-    /usr/local/jrootfs/ /sbin/init &
-  sleep 3
+  then
+    modprobe virtual_fb
+    /usr/local/jrootfs/usr/bin/jchroot -n jail -f /usr/local/jrootfs/etc/fstab  \
+      /usr/local/jrootfs/ /sbin/init &
+    sleep 3
 fi
 
-/usr/local/jrootfs/usr/bin/nsenter -t $(pgrep -n init) -u -m -p -r /bin/sh
+if [ "$#" -lt  "1" ]
+  then
+    /usr/local/jrootfs/usr/bin/nsenter -t $(pgrep -n init) -u -m -p -r /bin/sh
+  else
+    /usr/local/jrootfs/usr/bin/nsenter -t $(pgrep -n init) -u -m -p -r "$@"
+fi
